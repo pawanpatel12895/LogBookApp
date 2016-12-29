@@ -1,0 +1,167 @@
+<resources>
+    <string name="app_name">LogBook</string>
+    <string name="location">Location</string>
+    <string name="panel">Panel</string>
+    <string name="next">Next</string>
+    <string name="device">Device</string>
+    <string name="capture">Capture</string>
+    <string name="save">Save</string>
+    <string name="back">Back</string>
+
+
+    <string-array name="ArrayLocationContent">
+        <item>MDT</item>
+        <item>MDT</item>
+        <item>WASHALA</item>
+        <item>MMT</item>
+        <item>SANGHAVI</item>
+        <item>GUJRI</item>
+        <item>MANGLAYA</item>
+        <item>KOTA</item>
+        <item>MALARNA</item>
+        <item>MATHURA</item>
+        <item>BHARATPUR</item>
+        <item>PIYALA</item>
+        <item>BRIJWASAN</item>
+    </string-array>
+    <string-array name="ArrayPanelContent">
+        <item>HV PANEL</item>
+        <item>MV PANEL</item>
+        <item>LV PANEL</item>
+    </string-array>
+
+
+    <string-array name="ArrayDeviceInHVPanelContent">
+        <item>Capacitor bank 1</item>
+        <item>Transformer Feeder 1</item>
+        <item>Incomer 1</item>
+        <item>Bus coupler</item>
+        <item>Bus PT</item>
+        <item>Incomer 2</item>
+        <item>Transformer Feeder 2</item>
+        <item>Capacitor bank 2</item>
+
+    </string-array>
+    <string-array name="ArrayDeviceInMVPanelContent">
+        <item>Capacitor Bank 1</item>
+        <item>MLP A</item>
+        <item>Booster Pump A</item>
+        <item>MLP C</item>
+        <item>Transformer 1</item>
+        <item>Incomer 1</item>
+        <item>Bus PT</item>
+        <item>Bus Coupler</item>
+        <item>Bus PT/BusTrunking</item>
+        <item>Incomer 2</item>
+        <item>Transformer 2</item>
+        <item>Booster Pump B</item>
+        <item>MLP B</item>
+        <item>Motor Feedspare</item>
+        <item>Capacitor Bank 2</item>
+    </string-array>
+    <string-array name="ArrayDeviceInLVPanelContent">
+        <item>Incomer 1</item>
+        <item>Bus Coupler</item>
+        <item>Incomer 2</item>
+    </string-array>
+
+    <string-array name="HVPanel1_8Content">
+        <item>Over current relay</item>
+        <item>Earth fault relay</item>
+        <item>Supervision equipment HORM 4</item>
+        <item>Trip circuit supervision relay</item>
+        <item>Lockout relay</item>
+
+    </string-array>
+    <string-array name="HVPanel2_7Content">
+        <item>Over current relay</item>
+        <item>Inst. Earth fault relay</item>
+        <item>Auxiliary relay</item>
+        <item>Trip circuit supervision relay</item>
+        <item>Lockout relay</item>
+        <item>Earth fault relay</item>
+
+    </string-array>
+    <string-array name="HVPanel3_6Content">
+        <item>Over current relay</item>
+        <item>Earth fault relay</item>
+        <item>Inst. Under voltage relay</item>
+        <item>Lockout relay</item>
+    </string-array>
+    <string-array name="HVPanel4Content">
+        <item>Over current relay</item>
+        <item>Earth fault relay</item>
+        <item>Trip circuit supervision relay</item>
+        <item>Lockout Relay</item>
+
+    </string-array>
+    <string-array name="HVPanel5Content">
+        <item>Pilot wire protection relay</item>
+        <item>Supervision equipment HORM 4</item>
+
+    </string-array>
+
+    <string-array name="MVPanel1_15Content">
+        <item>Over current relay</item>
+        <item>Earth fault relay</item>
+        <item>Supervision equipment HORM 4</item>
+        <item>Trip circuit supervision relay</item>
+        <item>Lockout relay</item>
+
+    </string-array>
+    <string-array name="MVPanel2_4_13_14Content">
+        <item>Instantaneous Undervoltage Relay</item>
+        <item>Auxilary Relay</item>
+        <item>Trip Circuit Supervision Relay</item>
+        <item>Over Current Relay</item>
+        <item>Instantaneous Earth Fault Relay</item>
+
+    </string-array>
+    <string-array name="MVPanel3_12Content">
+        <item>Instantaneous UnderVoltage Relay</item>
+        <item>Auxillary Relay Trip Circuit Supervision Relay</item>
+        <item>Trip Circuit Supervision Relay</item>
+        <item>Lockout Relay</item>
+        <item>MotPro</item>
+
+    </string-array>
+    <string-array name="MVPanel5_11Content">
+        <item>Over current relay</item>
+        <item>Inst. Earth fault relay</item>
+        <item>Auxiliary relay</item>
+        <item>Trip circuit supervision relay</item>
+        <item>Lockout relay</item>
+        <item>Earth fault relay</item>
+
+    </string-array>
+    <string-array name="MVPanel6_10Content">
+        <item>Over current relay</item>
+        <item>Earth fault relay</item>
+        <item>Inst. Under voltage relay</item>
+        <item>Lockout relay</item>
+    </string-array>
+    <string-array name="MVPanel7_9Content">
+        <item>Pilot wire protection relay</item>
+        <item>Supervision equipment HORM 4</item>
+    </string-array>
+    <string-array name="MVPanel8Content">
+        <item>Over current relay</item>
+        <item>Earth fault relay</item>
+        <item>Trip circuit supervision relay</item>
+        <item>Lockout Relay</item>
+    </string-array>
+    <string-array name="LVPanel1_3Content">
+        <item>Auxiliary relay</item>
+        <item>NO volt relay</item>
+        <item>Over current relay</item>
+        <item>Earth fault relay</item>
+        <item>Under voltage relay</item>
+        <item>ON delay timer</item>
+        <item>Lockout relay</item>
+    </string-array>
+    <string-array name="LVPanel2Content">
+        <item>Over current relay</item>
+        <item>Auxiliary relay</item>
+        <item>Lockout relay</item>
+    </string-array>
+</resources>
