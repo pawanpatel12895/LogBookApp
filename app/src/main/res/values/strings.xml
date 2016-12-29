@@ -7,10 +7,14 @@
     <string name="capture">Capture</string>
     <string name="save">Save</string>
     <string name="back">Back</string>
+    <string name="_new">New</string>
+    <string name="show">Show</string>
+    <string name="upload">Upload</string>
+    <string name="exit">Exit</string>
 
 
     <string-array name="ArrayLocationContent">
-        <item>MDT</item>
+        <item>Choose Location...</item>
         <item>MDT</item>
         <item>WASHALA</item>
         <item>MMT</item>
@@ -25,6 +29,7 @@
         <item>BRIJWASAN</item>
     </string-array>
     <string-array name="ArrayPanelContent">
+        <item>Choose Panel...</item>
         <item>HV PANEL</item>
         <item>MV PANEL</item>
         <item>LV PANEL</item>
