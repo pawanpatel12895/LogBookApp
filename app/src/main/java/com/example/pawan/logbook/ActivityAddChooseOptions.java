@@ -37,13 +37,13 @@ public class ActivityAddChooseOptions extends AppCompatActivity {
         spinnerLocation.setAdapter(arrayAdapterSpinnerLocation);
         spinnerPanel.setAdapter(arrayAdapterSpinnerPanel);
 
-        buttonNext.setOnClickListener(new View.OnClickListener() {
+        buttonNext.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View view) {
 
                 int spinnerLocationSelectedPosition = spinnerLocation.getSelectedItemPosition();
                 int spinnerPanelSelectedPosition = spinnerPanel.getSelectedItemPosition();
-                int spinnerDeviceSelectedPosition = spinnerDevice.getSelectedItemPosition();
                 if(spinnerLocationSelectedPosition==0) {
                     Toast.makeText(ActivityAddChooseOptions.this, "Choose Location", Toast.LENGTH_SHORT).show();
                     return;
@@ -52,8 +52,8 @@ public class ActivityAddChooseOptions extends AppCompatActivity {
                     Toast.makeText(ActivityAddChooseOptions.this, "Choose Panel", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                String spinnerLocationSelectedString = arrayAdapterSpinnerLocation.getItem(spinnerLocationSelectedPosition).toString();
-                String spinnerPanelSelectedString = arrayAdapterSpinnerPanel.getItem(spinnerPanelSelectedPosition).toString();
+                String spinnerLocationSelectedString = spinnerLocation.getSelectedItem().toString();
+                String spinnerPanelSelectedString = spinnerPanel.getSelectedItem().toString();
                 String spinnerDeviceSelectedString = spinnerDevice.getSelectedItem().toString();
 
 
@@ -63,7 +63,8 @@ public class ActivityAddChooseOptions extends AppCompatActivity {
                 intent.putExtra("intentDevice",spinnerDeviceSelectedString);
                 startActivity(intent);
             }
-        });
+        }
+        );
         spinnerPanel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
