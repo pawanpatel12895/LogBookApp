@@ -58,28 +58,34 @@
                 android:id="@+id/textView2"
                 android:layout_gravity="bottom"
                 android:layout_marginTop="10dp"/>
-            <HorizontalScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/horizontalScrollView" >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                <com.example.pawan.logbook.ImageGroupView
-                    android:layout_height="wrap_content"
+                <HorizontalScrollView
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:id="@+id/imageBox"
-                    >
-                </com.example.pawan.logbook.ImageGroupView>
-                <ImageView
-
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:id="@+id/activitySnaps_ImageView_TakeNewImage"
-                    android:src="@drawable/no_img">
-                </ImageView>
+                    android:id="@+id/horizontalScrollView" >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <com.example.pawan.logbook.ImageGroupView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/imageBox"
+                        android:background="#eeeeee"
+                        >
+                    </com.example.pawan.logbook.ImageGroupView>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#eeeeee">
+                        <ImageView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_margin="2dp"
+                            android:id="@+id/activitySnaps_ImageView_TakeNewImage"
+                            android:src="@drawable/no_img">
+                        </ImageView>
+                    </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
 

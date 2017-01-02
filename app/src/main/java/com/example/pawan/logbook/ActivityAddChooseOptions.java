@@ -31,8 +31,8 @@ public class ActivityAddChooseOptions extends AppCompatActivity {
         spinnerDevice = (Spinner) findViewById(R.id.spinnerActivityAddChooser_Device);
         spinnerPanel = (Spinner) findViewById(R.id.spinnerActivityAddChooser_Panel);
 
-        final ArrayAdapter<CharSequence> arrayAdapterSpinnerLocation = ArrayAdapter.createFromResource(this, R.array.ArrayLocationContent, R.layout.support_simple_spinner_dropdown_item);
-        final ArrayAdapter<CharSequence> arrayAdapterSpinnerPanel = ArrayAdapter.createFromResource(this, R.array.ArrayPanelContent, R.layout.support_simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> arrayAdapterSpinnerLocation = ArrayAdapter.createFromResource(this, R.array.ArrayLocationContent, R.layout.support_simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> arrayAdapterSpinnerPanel = ArrayAdapter.createFromResource(this, R.array.ArrayPanelContent, R.layout.support_simple_spinner_dropdown_item);
 
         spinnerLocation.setAdapter(arrayAdapterSpinnerLocation);
         spinnerPanel.setAdapter(arrayAdapterSpinnerPanel);
