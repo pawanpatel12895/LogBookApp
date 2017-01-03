@@ -18,7 +18,7 @@ public class RecordListDisplay extends AppCompatActivity {
     String pwd = RecordManager.baseDirectory;
     RecordView recordView;
     TextView header;
-
+    private File file;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +35,7 @@ public class RecordListDisplay extends AppCompatActivity {
 
     private void placeContentsOfPWD() {
         File[] contentList = RecordManager.retriveList(pwd);
-
+        recordView.reset();
         for (File file : contentList) {
             if (file.isDirectory()) {
 
@@ -93,6 +93,7 @@ public class RecordListDisplay extends AppCompatActivity {
     }
 
     private TextView getDirectoryTextView(final File file) {
+
         TextView textView = new TextView(RecordListDisplay.this);
         textView.setText(file.getName());
         LinearLayout.LayoutParams  layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);

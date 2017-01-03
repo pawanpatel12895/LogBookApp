@@ -1,6 +1,8 @@
 package com.example.pawan.logbook;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -131,31 +133,45 @@ public class ActivityAddSnaps extends AppCompatActivity {
     private View.OnClickListener onClickListener_TakeSnaps = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Toast.makeText(ActivityAddSnaps.this, "To Do : take Snap", Toast.LENGTH_SHORT).show();
+            Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(cameraIntent, 1888);
         }
     };
     private View.OnClickListener onClickListener_SaveData = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            RecordManager recordManager = new RecordManager(SelecetdLocation,SelectdPanel,SelectdDevice);
+            RecordManager recordManager = new RecordManager(SelecetdLocation, SelectdPanel, SelectdDevice);
 
             recordManager.setComment(editText_Comment.getText().toString());
             recordManager.setAttributes(checkBoxGroupView.getCheckBoxCheckedStrings());
             recordManager.setBitmaps(imageGroupView.getImageGroupBitmapList());
 
 
-            if(recordManager.save(getParent())) {
+            if (recordManager.save(getParent())) {
                 Log.d(getApplication().getPackageName(), "Saving of Record done");
                 Toast.makeText(ActivityAddSnaps.this, "Record Saved", Toast.LENGTH_SHORT).show();
-            }
-            else {
+            } else {
                 Log.d(getApplication().getPackageName(), "Saving Failed");
                 Toast.makeText(ActivityAddSnaps.this, "Saving Failed", Toast.LENGTH_SHORT).show();
             }
-            
+
             restartApplication();
         }
     };
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1888 && resultCode == Activity.RESULT_OK) {
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            assert photo != null;
+            photo = Bitmap.createScaledBitmap(photo, photo.getWidth()*imageView_TakeNewSnap.getHeight()/photo.getHeight(), imageView_TakeNewSnap.getHeight(), false);
+            ImageView imageView = new ImageView(ActivityAddSnaps.this);
+            imageView.setImageBitmap(photo);
+            imageGroupView.putImageView(imageView);
+
+
+        }
+    }
+
 
     private void restartApplication() {
         Toast.makeText(ActivityAddSnaps.this, "Restating ..", Toast.LENGTH_SHORT).show();

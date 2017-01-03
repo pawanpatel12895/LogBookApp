@@ -2,6 +2,7 @@ package com.example.pawan.logbook;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -35,9 +36,9 @@ public class ImageGroupView extends LinearLayout {
     }
 
     public List<Bitmap> getImageGroupBitmapList() {
-        List<Bitmap> bitmaps = null;
+        List<Bitmap> bitmaps = new ArrayList<>();
         for (ImageView imageView : imageGroupViewList)
-            bitmaps.add(imageView.getDrawingCache());
+            bitmaps.add(((BitmapDrawable) imageView.getDrawable()).getBitmap());
         return bitmaps;
     }
 }
