@@ -9,12 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class ActivityAddSnaps extends AppCompatActivity {
@@ -37,18 +35,6 @@ public class ActivityAddSnaps extends AppCompatActivity {
         //       crap();
     }
 
-    private void crap() {
-
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(3, 3, 3, 3);
-        for (int i = 0; i < 4; ++i) {
-            ImageView imageView = new ImageView(ActivityAddSnaps.this);
-            imageView.setImageResource(R.drawable.bharatpetlogo);
-            imageView.setLayoutParams(layoutParams);
-            imageGroupView.putImageView(imageView);
-        }
-        imageGroupView.refresh();
-    }
 
     private void init_views() {
         button_Save = (Button) findViewById(R.id.activitySnaps_buttonSave);
@@ -163,7 +149,7 @@ public class ActivityAddSnaps extends AppCompatActivity {
         if (requestCode == 1888 && resultCode == Activity.RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             assert photo != null;
-            photo = Bitmap.createScaledBitmap(photo, photo.getWidth()*imageView_TakeNewSnap.getHeight()/photo.getHeight(), imageView_TakeNewSnap.getHeight(), false);
+            photo = Bitmap.createScaledBitmap(photo, photo.getWidth() * imageView_TakeNewSnap.getHeight() / photo.getHeight(), imageView_TakeNewSnap.getHeight(), false);
             ImageView imageView = new ImageView(ActivityAddSnaps.this);
             imageView.setImageBitmap(photo);
             imageGroupView.putImageView(imageView);
@@ -174,7 +160,7 @@ public class ActivityAddSnaps extends AppCompatActivity {
 
 
     private void restartApplication() {
-        Toast.makeText(ActivityAddSnaps.this, "Restating ..", Toast.LENGTH_SHORT).show();
+        //    Toast.makeText(ActivityAddSnaps.this, "Restating ..", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(ActivityAddSnaps.this, LauncherActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);

@@ -17,6 +17,7 @@ public class ActivityAddChooseOptions extends AppCompatActivity {
     Spinner spinnerPanel;
     Spinner spinnerDevice;
     Button buttonNext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,53 +38,55 @@ public class ActivityAddChooseOptions extends AppCompatActivity {
         spinnerLocation.setAdapter(arrayAdapterSpinnerLocation);
         spinnerPanel.setAdapter(arrayAdapterSpinnerPanel);
 
-        buttonNext.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view) {
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+                                          @Override
+                                          public void onClick(View view) {
 
-                int spinnerLocationSelectedPosition = spinnerLocation.getSelectedItemPosition();
-                int spinnerPanelSelectedPosition = spinnerPanel.getSelectedItemPosition();
-                if(spinnerLocationSelectedPosition==0) {
-                    Toast.makeText(ActivityAddChooseOptions.this, "Choose Location", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(spinnerPanelSelectedPosition==0) {
-                    Toast.makeText(ActivityAddChooseOptions.this, "Choose Panel", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                String spinnerLocationSelectedString = spinnerLocation.getSelectedItem().toString();
-                String spinnerPanelSelectedString = spinnerPanel.getSelectedItem().toString();
-                String spinnerDeviceSelectedString = spinnerDevice.getSelectedItem().toString();
+                                              int spinnerLocationSelectedPosition = spinnerLocation.getSelectedItemPosition();
+                                              int spinnerPanelSelectedPosition = spinnerPanel.getSelectedItemPosition();
+                                              if (spinnerLocationSelectedPosition == 0) {
+                                                  Toast.makeText(ActivityAddChooseOptions.this, "Choose Location", Toast.LENGTH_SHORT).show();
+                                                  return;
+                                              }
+                                              if (spinnerPanelSelectedPosition == 0) {
+                                                  Toast.makeText(ActivityAddChooseOptions.this, "Choose Panel", Toast.LENGTH_SHORT).show();
+                                                  return;
+                                              }
+                                              String spinnerLocationSelectedString = spinnerLocation.getSelectedItem().toString();
+                                              String spinnerPanelSelectedString = spinnerPanel.getSelectedItem().toString();
+                                              String spinnerDeviceSelectedString = spinnerDevice.getSelectedItem().toString();
 
 
-                Intent intent = new Intent(ActivityAddChooseOptions.this, ActivityAddSnaps.class);
-                intent.putExtra("intentLocation",spinnerLocationSelectedString);
-                intent.putExtra("intentPanel",spinnerPanelSelectedString);
-                intent.putExtra("intentDevice",spinnerDeviceSelectedString);
-                startActivity(intent);
-            }
-        }
+                                              Intent intent = new Intent(ActivityAddChooseOptions.this, ActivityAddSnaps.class);
+                                              intent.putExtra("intentLocation", spinnerLocationSelectedString);
+                                              intent.putExtra("intentPanel", spinnerPanelSelectedString);
+                                              intent.putExtra("intentDevice", spinnerDeviceSelectedString);
+                                              startActivity(intent);
+                                          }
+                                      }
         );
         spinnerPanel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                switch(position)
-                {   case 1:
+                switch (position) {
+                    case 1:
                         spinnerDevice.setAdapter(ArrayAdapter.createFromResource(getBaseContext(), R.array.ArrayDeviceInHVPanelContent, R.layout.support_simple_spinner_dropdown_item));
-                    break;
+                        break;
                     case 2:
-                        spinnerDevice.setAdapter( ArrayAdapter.createFromResource(getBaseContext(), R.array.ArrayDeviceInMVPanelContent, R.layout.support_simple_spinner_dropdown_item));
+                        spinnerDevice.setAdapter(ArrayAdapter.createFromResource(getBaseContext(), R.array.ArrayDeviceInMVPanelContent, R.layout.support_simple_spinner_dropdown_item));
                         break;
                     case 3:
                         spinnerDevice.setAdapter(ArrayAdapter.createFromResource(getBaseContext(), R.array.ArrayDeviceInLVPanelContent, R.layout.support_simple_spinner_dropdown_item));
                         break;
-                    default:String[] stringsDevice={"Choose Panel..."};
-                        spinnerDevice.setAdapter(new ArrayAdapter(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,stringsDevice));
+                    default:
+                        String[] stringsDevice = {"Choose Panel..."};
+                        spinnerDevice.setAdapter(new ArrayAdapter(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, stringsDevice));
                 }
             }
+
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {}
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
         });
     }
 
@@ -92,7 +95,8 @@ public class ActivityAddChooseOptions extends AppCompatActivity {
         assert supportActionBar != null;
         supportActionBar.setDisplayHomeAsUpEnabled(true);
     }
-    public boolean onOptionsItemSelected(MenuItem item){
+
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();

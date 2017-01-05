@@ -53,8 +53,7 @@ public class CheckBoxGroupView extends LinearLayout {
         return checkeds;
     }
 
-    public String[] getCheckBoxCheckedStrings()
-    {
+    public String[] getCheckBoxCheckedStrings()    {
         List<CheckBox> checkBoxes = this.getCheckboxesChecked();
         String[] cbStrings  = new String[checkBoxes.size()];
         for(int i=0;i<checkBoxes.size();++i)

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 
@@ -34,6 +35,11 @@ public class RecordListDisplay extends AppCompatActivity {
     }
 
     private void placeContentsOfPWD() {
+        if(RecordManager.isDirectory()==false)
+        {
+            Toast.makeText(RecordListDisplay.this, "Nothing to Display", Toast.LENGTH_SHORT).show();
+            return ;
+        }
         File[] contentList = RecordManager.retriveList(pwd);
         recordView.reset();
         for (File file : contentList) {

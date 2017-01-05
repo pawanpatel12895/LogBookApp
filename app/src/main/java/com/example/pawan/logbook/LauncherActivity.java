@@ -26,7 +26,6 @@ public class LauncherActivity extends AppCompatActivity {
         init_buttons();
     }
 
-
     private void init_buttons() {
         buttonNew = (Button) findViewById(R.id.buttonLauncherActivity_New);
         buttonNew.setOnClickListener(listnerNewbutton);
@@ -38,13 +37,13 @@ public class LauncherActivity extends AppCompatActivity {
         buttonExit.setOnClickListener(listnerExitbutton);
     }
 
-
     private void check_permissions() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            //     if(checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED)
-            //       ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
-            if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
+            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 2);
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+
         }
     }
 
@@ -61,13 +60,10 @@ public class LauncherActivity extends AppCompatActivity {
     private View.OnClickListener listnerShowbutton = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(LauncherActivity.this,RecordListDisplay.class);
+            Intent intent = new Intent(LauncherActivity.this, RecordListDisplay.class);
             startActivity(intent);
-
-
-
-
-        }};
+        }
+    };
     private View.OnClickListener listnerNewbutton = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
