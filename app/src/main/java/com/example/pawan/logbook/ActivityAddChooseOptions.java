@@ -21,7 +21,7 @@ public class ActivityAddChooseOptions extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_activity_add_choose_options);
+        setContentView(R.layout.activity_add_choose_options);
         init_actionBar();
         init_views();
     }

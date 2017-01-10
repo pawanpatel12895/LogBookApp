@@ -1,13 +1,8 @@
 package com.example.pawan.logbook;
 
-import android.Manifest;
 import android.app.Activity;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.os.Build;
 import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import java.io.File;
@@ -124,10 +119,8 @@ public class RecordManager {
             Log.d(TAG, " directory made : " + RecordDirectory);
         } else {
             Log.d(TAG, "error in making directory");
-            check_permissions(parent);
-            return false;
+                    return false;
         }
-
         if (saveComment(RecordDirectory) && savePhotos(RecordDirectory) && saveAttributes(RecordDirectory))
             return true;
         else
@@ -189,19 +182,8 @@ public class RecordManager {
         return file.listFiles();
     }
 
-    public void check_permissions(Activity activity) {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            //     if(checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED)
-            //       ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
-            if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.CAMERA}, 1);
-            }
-        }
-    }
-
     private String getTime() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd hhmm");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh-mm aa");
         Date date = new Date();
         return dateFormat.format(date);
     }

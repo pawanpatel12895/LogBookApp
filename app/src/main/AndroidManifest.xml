@@ -27,7 +27,8 @@
         </activity>
         <activity android:name=".ActivityAddChooseOptions" />
         <activity android:name=".ActivityAddSnaps" />
-        <activity android:name=".RecordListDisplay"></activity>
+        <activity android:name=".ActivityRecordListDisplay" />
+        <activity android:name=".ActivityRecordDisplay"></activity>
     </application>
 
 </manifest>

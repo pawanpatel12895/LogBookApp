@@ -21,7 +21,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="15dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -47,28 +48,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/show"
                 android:id="@+id/buttonLauncherActivity_Show"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/upload"
-                android:id="@+id/buttonLauncherActivity_Upload"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/exit"
-                android:id="@+id/buttonLauncherActivity_Exit"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="5dp"

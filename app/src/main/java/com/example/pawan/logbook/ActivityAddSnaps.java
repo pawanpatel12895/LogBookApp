@@ -1,9 +1,13 @@
 package com.example.pawan.logbook;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -119,6 +123,11 @@ public class ActivityAddSnaps extends AppCompatActivity {
     private View.OnClickListener onClickListener_TakeSnaps = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            if(!checkCameraPermission())
+                if(!giveCameraPermission()) {
+                    Toast.makeText(ActivityAddSnaps.this, "Camera is not acessible", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(cameraIntent, 1888);
         }
@@ -132,6 +141,12 @@ public class ActivityAddSnaps extends AppCompatActivity {
             recordManager.setAttributes(checkBoxGroupView.getCheckBoxCheckedStrings());
             recordManager.setBitmaps(imageGroupView.getImageGroupBitmapList());
 
+            if(!checkReadPermission())
+                if(!giveReadPermission())
+                    return;
+            if(!checkWritePermission())
+                if(!giveWritePermission())
+                    return;
 
             if (recordManager.save(getParent())) {
                 Log.d(getApplication().getPackageName(), "Saving of Record done");
@@ -164,5 +179,41 @@ public class ActivityAddSnaps extends AppCompatActivity {
         Intent intent = new Intent(ActivityAddSnaps.this, LauncherActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+    }
+    boolean checkCameraPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+            return false;
+        return true;
+    }
+    boolean giveCameraPermission() {
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 2);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+            return false;
+        return true;
+    }
+    boolean checkWritePermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+            return false;
+        return true;
+    }
+
+    boolean giveWritePermission() {
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+            return false;
+        return true;
+    }
+
+    boolean checkReadPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+            return false;
+        return true;
+    }
+
+    boolean giveReadPermission() {
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+            return false;
+        return true;
     }
 }
