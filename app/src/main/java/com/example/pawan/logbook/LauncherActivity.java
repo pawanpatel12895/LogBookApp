@@ -25,7 +25,7 @@ public class LauncherActivity extends AppCompatActivity {
         buttonShow = (Button) findViewById(R.id.buttonLauncherActivity_Show);
         buttonShow.setOnClickListener(listnerShowbutton);
       //  buttonUpload = (Button) findViewById(R.id.buttonLauncherActivity_Upload);
-        buttonUpload.setOnClickListener(listnerUploadbutton);
+     //   buttonUpload.setOnClickListener(listnerUploadbutton);
     }
 
 
