@@ -54,6 +54,18 @@
                 android:layout_marginBottom="5dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/upload"
+                android:id="@+id/buttonLauncherActivity_Upload"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:onClick="listnerUploadbutton"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
